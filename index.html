@@ -75,7 +75,7 @@
 
   .photo-frame svg {
     width: 100%; height: 100%; border-radius: 50%;
-    border: 4px solid #fff; background: #e0f7fa; /* Light blue background */
+    border: 4px solid #fff; background: #e0f7fa;
   }
 
   h1 { 
@@ -143,7 +143,77 @@
     color: #8e24aa; margin-top: 10px; text-align: right; padding-right: 20px; 
     transform: translateZ(20px);
   }
+
+  /* ---------- INTERACTIVE QUESTION SECTION ---------- */
+  .interactive-section {
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 20px;
+    padding: 25px;
+    margin-top: 30px;
+    box-shadow: 0 10px 30px rgba(194, 24, 91, 0.1);
+    border: 2px dashed #f8bbd0;
+    transform: translateZ(25px);
+    transition: all 0.4s ease;
+  }
   
+  .interactive-section h3 {
+    font-family: 'Dancing Script', cursive;
+    font-size: 2rem;
+    color: #c2185b;
+    margin-bottom: 15px;
+  }
+  
+  .interactive-buttons {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  
+  .ans-btn {
+    padding: 12px 25px;
+    border-radius: 50px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    font-size: 0.95rem;
+    cursor: pointer;
+    border: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  }
+  
+  .ans-btn.yes {
+    background: linear-gradient(135deg, #4caf50, #81c784);
+    color: white;
+  }
+  
+  .ans-btn.yes:hover {
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 8px 25px rgba(76, 175, 80, 0.4);
+  }
+  
+  .ans-btn.no {
+    background: white;
+    color: #888;
+    border: 2px solid #ddd;
+  }
+  
+  .ans-btn.no:hover {
+    background: #f5f5f5;
+    color: #666;
+    transform: translateY(-3px);
+  }
+  
+  .love-message {
+    display: none;
+    font-family: 'Dancing Script', cursive;
+    font-size: 2.5rem;
+    color: #ec407a;
+    margin-top: 20px;
+    animation: popUp 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    text-shadow: 0 5px 15px rgba(236, 64, 122, 0.3);
+  }
+
   .forgive-btn {
     margin-top: 25px; padding: 16px 45px; font-family: 'Poppins', sans-serif;
     font-size: 1.05rem; font-weight: 600; color: #fff; letter-spacing: 1px;
@@ -152,6 +222,9 @@
     box-shadow: 0 10px 25px rgba(236, 64, 122, 0.4); 
     transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     transform: translateZ(35px);
+    display: none; /* Hidden initially, shows after answering */
+    margin-left: auto;
+    margin-right: auto;
   }
   .forgive-btn:hover { 
     transform: translateZ(45px) translateY(-5px) scale(1.05); 
@@ -231,6 +304,10 @@
     h1 { font-size: 2.6rem; }
     .message { font-size: 0.98rem; padding: 0; }
     .photo-frame { width: 140px; height: 140px; }
+    .interactive-section { padding: 15px; }
+    .interactive-section h3 { font-size: 1.6rem; }
+    .ans-btn { padding: 10px 20px; font-size: 0.85rem; }
+    .love-message { font-size: 2rem; }
     .forgive-btn { padding: 15px 35px; font-size: 1rem; }
     .question-highlight { font-size: 1rem; }
     .quote-box { padding: 15px 20px; font-size: 1rem; }
@@ -245,43 +322,26 @@
 <div class="card-wrapper" id="tiltCard">
   <div class="card">
     
-    <!-- 🎀 Animated Cute Kitty Vector (No image links needed) -->
+    <!-- 🎀 Animated Cute Kitty Vector -->
     <div class="photo-frame">
       <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-        <!-- Background Clouds -->
         <path d="M 0 80 Q 20 60 40 80 Q 60 60 80 80 Q 90 70 100 80 L 100 100 L 0 100 Z" fill="#ffffff" opacity="0.8"/>
         <path d="M -10 90 Q 15 70 35 90 Q 55 70 75 90 Q 95 70 110 90 L 110 100 L -10 100 Z" fill="#ffffff"/>
-        
-        <!-- Kitty Head -->
         <ellipse cx="50" cy="50" rx="35" ry="30" fill="#ffffff" stroke="#333" stroke-width="2"/>
-        
-        <!-- Left Ear -->
         <path d="M 20 30 Q 15 10 30 20 L 35 35 Z" fill="#ffffff" stroke="#333" stroke-width="2" stroke-linejoin="round"/>
-        <!-- Right Ear -->
         <path d="M 80 30 Q 85 10 70 20 L 65 35 Z" fill="#ffffff" stroke="#333" stroke-width="2" stroke-linejoin="round"/>
-        
-        <!-- Eyes -->
         <circle cx="35" cy="48" r="4" fill="#333"/>
         <circle cx="65" cy="48" r="4" fill="#333"/>
-        
-        <!-- Nose -->
         <ellipse cx="50" cy="55" rx="4" ry="3" fill="#ffcc00" stroke="#333" stroke-width="1"/>
-        
-        <!-- Whiskers -->
         <line x1="15" y1="45" x2="30" y2="48" stroke="#333" stroke-width="2" stroke-linecap="round"/>
         <line x1="15" y1="55" x2="30" y2="55" stroke="#333" stroke-width="2" stroke-linecap="round"/>
         <line x1="15" y1="65" x2="30" y2="62" stroke="#333" stroke-width="2" stroke-linecap="round"/>
-        
         <line x1="85" y1="45" x2="70" y2="48" stroke="#333" stroke-width="2" stroke-linecap="round"/>
         <line x1="85" y1="55" x2="70" y2="55" stroke="#333" stroke-width="2" stroke-linecap="round"/>
         <line x1="85" y1="65" x2="70" y2="62" stroke="#333" stroke-width="2" stroke-linecap="round"/>
-        
-        <!-- Pink Bow -->
         <path d="M 65 20 Q 80 10 80 25 Q 80 35 65 30 Z" fill="#ff4081" stroke="#333" stroke-width="1.5"/>
         <path d="M 65 20 Q 50 10 50 25 Q 50 35 65 30 Z" fill="#ff4081" stroke="#333" stroke-width="1.5"/>
         <circle cx="65" cy="25" r="4" fill="#f50057" stroke="#333" stroke-width="1.5"/>
-        
-        <!-- Little Stars -->
         <path d="M 15 15 L 18 20 L 23 22 L 18 24 L 15 29 L 12 24 L 7 22 L 12 20 Z" fill="#ff4081"/>
         <path d="M 85 75 L 87 78 L 90 79 L 87 80 L 85 83 L 83 80 L 80 79 L 83 78 Z" fill="#ff4081"/>
       </svg>
@@ -294,7 +354,6 @@
       
       <p>Par humko laga tha yr ki tum call back karegi par 😔. Thoda sa misunderstanding ke wazah se itna ladai, mere wazah se sorry yr 😭.</p>
       
-      <!-- PROFESSIONAL QUOTE 1 -->
       <div class="quote-box">
         Kuch baatein hum keh nahi paate, aur kuch baatein woh samajh nahi paate. Par rishtey wahi rehte hain, bas ek 'Sorry' ki zaroorat hoti hai.
         <span>— For You 💗</span>
@@ -306,7 +365,6 @@
 
       <p>Humko maaf kardo yr 😭. Kal jab tum call ki thi tab hum medical mai the mama ke sath. Isiliye baat nhi kiye kyuki mama ka body garam tha, pura usko pochh rahe the bar bar.</p>
 
-      <!-- PROFESSIONAL QUOTE 2 -->
       <div class="quote-box" style="border-left-color: #8e24aa; background: linear-gradient(135deg, rgba(243, 229, 245, 0.9), rgba(225, 190, 231, 0.9));">
         Mujhe pata hai main galat tha, par mujhe ye bhi pata hai ki tumhare bina sab kuch adhura hai. Please maaf kar do.
         <span style="color: #8e24aa;">— Shashwat 💫</span>
@@ -319,7 +377,18 @@
 
     <div class="signature">— Shashwat 💫</div>
 
-    <button class="forgive-btn" onclick="forgive()">I Forgive You 💖</button>
+    <!-- 🎯 NEW INTERACTIVE QUESTION SECTION -->
+    <div class="interactive-section" id="questionSection">
+      <h3>Kya aapne mujhe maaf kar diya? 🥺</h3>
+      <div class="interactive-buttons">
+        <button class="ans-btn yes" onclick="showLove()">Haan, Maaf Kiya 💗</button>
+        <button class="ans-btn no" onclick="alert('Please maaf kar do na SuMo... 🥺😭')">Nahi, Abhi Gussa Hoon 😤</button>
+      </div>
+      <div class="love-message" id="loveMessage">I love you SuMo 💗🧿</div>
+    </div>
+
+    <!-- Forgive Button (Hidden initially, shown after answering) -->
+    <button class="forgive-btn" id="forgiveBtn" onclick="forgive()">I Forgive You 💖</button>
 
     <div class="connect-title">Connect With Me</div>
     <div class="connect-row">
@@ -379,6 +448,13 @@
   }
   setInterval(createHeart, 600);
   for (let i = 0; i < 15; i++) setTimeout(createHeart, i * 300);
+
+  // --- INTERACTIVE QUESTION LOGIC ---
+  function showLove() {
+    document.getElementById('loveMessage').style.display = 'block';
+    document.getElementById('questionSection').style.display = 'none';
+    document.getElementById('forgiveBtn').style.display = 'block';
+  }
 
   // Forgive Logic
   function forgive() {
