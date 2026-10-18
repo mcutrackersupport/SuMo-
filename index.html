@@ -3,90 +3,142 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Sorry SuMo 💗</title>
+<title>I'm Sorry, SuMo 💗</title>
 <style>
-  @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@300;400;600&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@300;400;500;600&display=swap');
+  
   * { margin: 0; padding: 0; box-sizing: border-box; }
+  
   body {
     min-height: 100vh; display: flex; align-items: center; justify-content: center;
-    background: linear-gradient(135deg, #fce4ec 0%, #f8bbd0 40%, #e1bee7 100%);
+    background: linear-gradient(-45deg, #fce4ec, #f8bbd0, #e1bee7, #f3e5f5);
+    background-size: 400% 400%;
+    animation: gradientBG 15s ease infinite;
     font-family: 'Poppins', sans-serif; padding: 20px; overflow-x: hidden;
   }
+
+  @keyframes gradientBG {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+
   .heart {
     position: fixed; bottom: -50px; font-size: 24px;
-    color: rgba(233, 30, 99, 0.35); animation: floatUp linear infinite; pointer-events: none;
+    color: rgba(233, 30, 99, 0.4); animation: floatUp linear infinite; pointer-events: none;
+    z-index: 1;
   }
   @keyframes floatUp {
     0% { transform: translateY(0) rotate(0deg); opacity: 0; }
     10% { opacity: 1; }
     100% { transform: translateY(-110vh) rotate(360deg); opacity: 0; }
   }
+
   .card {
-    position: relative; z-index: 2; background: rgba(255, 255, 255, 0.92);
-    backdrop-filter: blur(10px); max-width: 620px; width: 100%;
-    border-radius: 24px; padding: 45px 40px;
-    box-shadow: 0 20px 60px rgba(194, 24, 91, 0.25);
-    text-align: center; border: 2px solid rgba(255, 255, 255, 0.8);
-    animation: fadeIn 1.2s ease;
+    position: relative; z-index: 2; background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px);
+    max-width: 650px; width: 100%;
+    border-radius: 30px; padding: 50px 40px;
+    box-shadow: 0 25px 50px rgba(194, 24, 91, 0.15), inset 0 0 0 2px rgba(255, 255, 255, 0.6);
+    text-align: center;
+    animation: fadeIn 1.5s cubic-bezier(0.16, 1, 0.3, 1);
   }
-  @keyframes fadeIn { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+
+  @keyframes fadeIn { 
+    from { opacity: 0; transform: translateY(40px) scale(0.95); } 
+    to { opacity: 1; transform: translateY(0) scale(1); } 
+  }
+
+  /* ---------- AI BARBIE ANIMATED PHOTO FRAME ---------- */
   .photo-frame {
-    width: 180px; height: 180px; margin: 0 auto 20px;
-    border-radius: 50%; padding: 6px;
-    background: linear-gradient(135deg, #ec407a, #ab47bc, #ffd54f);
-    box-shadow: 0 10px 30px rgba(236, 64, 122, 0.35);
-    animation: photoPulse 3s ease-in-out infinite;
-    position: relative; overflow: hidden; display: flex; align-items: center; justify-content: center;
+    width: 170px; height: 170px; margin: 0 auto 25px;
+    border-radius: 50%; padding: 5px;
+    background: linear-gradient(45deg, #ff9a9e 0%, #fecfef 99%, #fecfef 100%);
+    box-shadow: 0 10px 30px rgba(236, 64, 122, 0.4);
+    animation: photoPulse 4s ease-in-out infinite;
+    position: relative; overflow: hidden;
+    display: flex; align-items: center; justify-content: center;
   }
+
   @keyframes photoPulse {
-    0%, 100% { box-shadow: 0 10px 30px rgba(236, 64, 122, 0.35); }
-    50%      { box-shadow: 0 10px 45px rgba(171, 71, 188, 0.55); }
+    0%, 100% { box-shadow: 0 10px 30px rgba(236, 64, 122, 0.3); transform: scale(1); }
+    50%      { box-shadow: 0 15px 45px rgba(171, 71, 188, 0.6); transform: scale(1.03); }
   }
-  .photo-frame img {
-    width: 100%; height: 100%; object-fit: cover; object-position: center 15%;
-    border-radius: 50%; border: 4px solid #fff; display: block;
+
+  .photo-frame svg {
+    width: 100%; height: 100%; border-radius: 50%;
+    border: 4px solid #fff; background: #ffe0b2;
   }
-  h1 { font-family: 'Dancing Script', cursive; font-size: 3rem; color: #c2185b; margin: 10px 0 18px; }
-  .message { font-size: 1.02rem; line-height: 1.9; color: #4a4a4a; font-weight: 300; margin-bottom: 28px; }
+
+  h1 { 
+    font-family: 'Dancing Script', cursive; font-size: 3.5rem; 
+    background: -webkit-linear-gradient(45deg, #c2185b, #8e24aa);
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    margin: 10px 0 20px; 
+  }
+
+  .message { 
+    font-size: 1.05rem; line-height: 1.9; color: #444; font-weight: 400; 
+    margin-bottom: 30px; text-align: left; padding: 0 10px;
+  }
+  .message p { margin-bottom: 15px; }
   .message strong { color: #c2185b; font-weight: 600; }
-  .signature { font-family: 'Dancing Script', cursive; font-size: 1.7rem; color: #8e24aa; margin-top: 10px; }
+  
+  .quote-box {
+    background: rgba(252, 228, 236, 0.6);
+    border-left: 4px solid #ec407a;
+    padding: 15px 20px; border-radius: 0 10px 10px 0;
+    font-style: italic; color: #555; margin: 20px 0;
+  }
+
+  .signature { font-family: 'Dancing Script', cursive; font-size: 2rem; color: #8e24aa; margin-top: 10px; text-align: right; padding-right: 20px; }
+  
   .forgive-btn {
-    margin-top: 30px; padding: 16px 45px; font-family: 'Poppins', sans-serif;
-    font-size: 1.05rem; font-weight: 600; color: #fff;
+    margin-top: 25px; padding: 18px 50px; font-family: 'Poppins', sans-serif;
+    font-size: 1.1rem; font-weight: 600; color: #fff; letter-spacing: 1px;
     background: linear-gradient(135deg, #ec407a, #ab47bc);
     border: none; border-radius: 50px; cursor: pointer;
-    box-shadow: 0 8px 25px rgba(236, 64, 122, 0.4); transition: all 0.3s ease;
+    box-shadow: 0 10px 25px rgba(236, 64, 122, 0.4); 
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    position: relative; overflow: hidden;
   }
-  .forgive-btn:hover { transform: translateY(-3px) scale(1.04); box-shadow: 0 12px 35px rgba(236, 64, 122, 0.55); }
-  .forgive-btn:active { transform: scale(0.97); }
-  .connect-title { margin-top: 40px; font-size: 0.9rem; font-weight: 600; color: #8e24aa; letter-spacing: 1.5px; text-transform: uppercase; }
-  .connect-sub { font-size: 0.82rem; color: #999; margin-top: 4px; margin-bottom: 16px; }
+  .forgive-btn:hover { 
+    transform: translateY(-5px) scale(1.05); 
+    box-shadow: 0 15px 35px rgba(236, 64, 122, 0.6); 
+  }
+  .forgive-btn:active { transform: scale(0.95); }
+
+  .connect-title { margin-top: 45px; font-size: 0.85rem; font-weight: 600; color: #8e24aa; letter-spacing: 2px; text-transform: uppercase; }
+  .connect-sub { font-size: 0.8rem; color: #888; margin-top: 5px; margin-bottom: 15px; }
   .connect-row { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
   .connect-btn {
     display: inline-flex; align-items: center; gap: 8px;
-    padding: 11px 20px; border-radius: 50px;
-    text-decoration: none; color: #fff; font-size: 0.88rem; font-weight: 600;
-    transition: all 0.3s ease; box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+    padding: 12px 22px; border-radius: 50px;
+    text-decoration: none; color: #fff; font-size: 0.85rem; font-weight: 500;
+    transition: all 0.3s ease; box-shadow: 0 6px 15px rgba(0,0,0,0.1);
   }
-  .connect-btn:hover { transform: translateY(-3px); box-shadow: 0 10px 25px rgba(0,0,0,0.2); }
-  .snap { background: linear-gradient(135deg, #fffc00, #ffd400); color: #333; }
-  .insta { background: linear-gradient(135deg, #833ab4, #fd1d1d, #fcb045); }
+  .connect-btn:hover { transform: translateY(-3px); box-shadow: 0 10px 20px rgba(0,0,0,0.2); }
+  .snap { background: #FFFC00; color: #000; font-weight: 600; }
+  .insta { background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); }
   .mail  { background: linear-gradient(135deg, #ec407a, #ab47bc); }
+
   #celebration {
     position: fixed; inset: 0; display: none; align-items: center; justify-content: center;
-    flex-direction: column; background: rgba(255, 255, 255, 0.96); z-index: 10;
-    text-align: center; padding: 25px; animation: fadeIn 0.6s ease;
+    flex-direction: column; background: rgba(255, 255, 255, 0.98); z-index: 100;
+    text-align: center; padding: 30px; animation: fadeIn 0.8s ease;
   }
-  #celebration h2 { font-family: 'Dancing Script', cursive; font-size: 3rem; color: #c2185b; margin-bottom: 15px; }
-  #celebration p { font-size: 1.15rem; color: #666; max-width: 420px; line-height: 1.7; }
-  .confetti { position: fixed; width: 10px; height: 10px; top: -20px; z-index: 11; animation: fall linear forwards; }
+  #celebration h2 { font-family: 'Dancing Script', cursive; font-size: 3.5rem; color: #c2185b; margin-bottom: 20px; }
+  #celebration p { font-size: 1.2rem; color: #555; max-width: 450px; line-height: 1.8; }
+  
+  .confetti { position: fixed; width: 12px; height: 12px; top: -20px; z-index: 101; animation: fall linear forwards; }
   @keyframes fall { to { transform: translateY(110vh) rotate(720deg); } }
+  
   @media (max-width: 480px) {
-    .card { padding: 30px 22px; }
-    h1 { font-size: 2.3rem; }
-    .message { font-size: 0.93rem; }
-    .photo-frame { width: 150px; height: 150px; }
-    .connect-btn { padding: 10px 16px; font-size: 0.8rem; }
+    .card { padding: 35px 20px; border-radius: 20px; }
+    h1 { font-size: 2.6rem; }
+    .message { font-size: 0.95rem; padding: 0; }
+    .photo-frame { width: 140px; height: 140px; }
+    .forgive-btn { padding: 15px 35px; font-size: 1rem; }
   }
 </style>
 </head>
@@ -95,52 +147,91 @@
 <div id="hearts"></div>
 
 <div class="card">
-  <!-- 📸 PHOTO FRAME: Yahan src ke andar apni photo ka lamba code paste karein -->
+  <!-- 📸 AI Animated Barbie/Princess Illustration -->
   <div class="photo-frame">
-    <img src="YAHAN_APNI_PHOTO_KA_LAMBA_CODE_PASTE_KAREIN" alt="SuMo 💗">
+    <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+      <!-- Background Gradient -->
+      <defs>
+        <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stop-color="#ffebf0" />
+          <stop offset="100%" stop-color="#f8bbd0" />
+        </linearGradient>
+        <linearGradient id="hairGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stop-color="#4a148c" />
+          <stop offset="100%" stop-color="#7b1fa2" />
+        </linearGradient>
+      </defs>
+      <circle cx="50" cy="50" r="50" fill="url(#bgGrad)"/>
+      <!-- Hair Back -->
+      <path d="M 20 60 Q 10 90 30 100 L 70 100 Q 90 90 80 60 Z" fill="url(#hairGrad)"/>
+      <!-- Dress -->
+      <path d="M 30 80 Q 50 70 70 80 L 85 100 L 15 100 Z" fill="#ec407a"/>
+      <!-- Neck & Face -->
+      <rect x="42" y="55" width="16" height="15" fill="#ffccbc" rx="5"/>
+      <ellipse cx="50" cy="45" rx="22" ry="25" fill="#ffccbc"/>
+      <!-- Hair Front -->
+      <path d="M 28 45 Q 25 15 50 15 Q 75 15 72 45 Q 70 30 50 30 Q 30 30 28 45 Z" fill="url(#hairGrad)"/>
+      <!-- Eyes -->
+      <circle cx="40" cy="42" r="3" fill="#333"/>
+      <circle cx="60" cy="42" r="3" fill="#333"/>
+      <circle cx="41" cy="41" r="1" fill="#fff"/>
+      <circle cx="61" cy="41" r="1" fill="#fff"/>
+      <!-- Blush -->
+      <ellipse cx="35" cy="50" rx="4" ry="2" fill="#ff8a80" opacity="0.6"/>
+      <ellipse cx="65" cy="50" rx="4" ry="2" fill="#ff8a80" opacity="0.6"/>
+      <!-- Lips -->
+      <path d="M 45 52 Q 50 57 55 52 Q 50 54 45 52 Z" fill="#e91e63"/>
+      <!-- Crown / Bow -->
+      <path d="M 50 15 L 40 5 L 45 15 L 50 8 L 55 15 L 60 5 Z" fill="#ffd700"/>
+    </svg>
   </div>
 
-  <span class="icon" style="font-size:50px; display:inline-block; animation: pulse 2s ease-in-out infinite;">💔</span>
-  <h1>I'm Sorry, <span style="color:#8e24aa;">SuMo</span> 💗</h1>
+  <h1>I'm Sorry, SuMo 💗</h1>
 
-  <p class="message">
-    Meri pyaari <strong>SuMo</strong>,<br><br>
-    I know saying <strong>"sorry"</strong> doesn't fix everything, but I need you to know
-    how truly I mean it. I messed up, and I've been thinking about it non-stop.
-    <br><br>
-    You mean so much to me, <strong>SuMo</strong>. The last thing I ever want to do is
-    hurt you or make you feel anything less than loved. I was wrong,
-    and I take full responsibility for my actions.
-    <br><br>
-    I'm not asking you to forget — I'm asking for a chance to make it right.
-    Whatever it takes. I promise to listen better, to be better,
-    and to show you every single day how much you matter to me.
-    <br><br>
-    Please forgive me? 🥺
-  </p>
+  <div class="message">
+    <p>Meri pyaari <strong>SuMo</strong>,</p>
+    
+    <p>Main jaanta hoon ki shabdon mein utni taqat nahi hoti ki main is waqt tumhare dil ko lagayi chot ko theek kar sakoon. Par main sach mein dil se <strong>Sorry</strong> keh raha hoon.</p>
+    
+    <div class="quote-box">
+      "Thodi si meri misunderstanding thi, galtiyan meri hi thi. Main shayad use waqt samajh nahi paya. Aur maine thoda sa expect kiya tha ki tum samajh jaogi... par shayad tum bhi nahi samajh payi. Aur yahi baat mujhe sabse zyada khal rahi hai."
+    </div>
+
+    <p>Tum meri zindagi ka sabse khaas hissa ho, <strong>SuMo</strong>. Mera tumse ladna, ruthna, manana... sab kuch tumhare saath hi accha lagta hai. Main nahi chahta ki meri is galti ki wajah se humare beech koi doori aa jaye. Tumhari narazgi mujhe andar se tod deti hai.</p>
+
+    <p>Main tumse koi bahana nahi bana raha. Main bas ye chahta hoon ki tum mujhe ek mauka do apni galti sudharne ka, khud ko saabit karne ka. Main sunna seekh raha hoon, aur tumhare liye behtar insaan banne ki koshish kar raha hoon.</p>
+
+    <p>Please, mujhe maaf kar do? 🥺</p>
+  </div>
 
   <div class="signature">— Shashwat 💫</div>
 
   <button class="forgive-btn" onclick="forgive()">I Forgive You 💖</button>
 
   <div class="connect-title">Connect With Me</div>
-  <div class="connect-sub">Whenever you're ready — I'm here 💌</div>
+  <div class="connect-sub">Jab bhi tumhara mann kare, main yahin hoon 💌</div>
   <div class="connect-row">
-    <a class="connect-btn snap" href="https://www.snapchat.com/add/shashwat244478" target="_blank" rel="noopener">Snapchat</a>
-    <a class="connect-btn insta" href="https://instagram.com/shashwat2767" target="_blank" rel="noopener">Instagram</a>
-    <a class="connect-btn mail" href="mailto:kumarshashwat200@gmail.com">Email</a>
+    <a class="connect-btn snap" href="https://www.snapchat.com/add/shashwat244478" target="_blank" rel="noopener">
+      👻 Snapchat
+    </a>
+    <a class="connect-btn insta" href="https://instagram.com/shashwat2767" target="_blank" rel="noopener">
+      📸 Instagram
+    </a>
+    <a class="connect-btn mail" href="mailto:kumarshashwat200@gmail.com">
+      ✉️ Email
+    </a>
   </div>
 </div>
 
 <div id="celebration">
   <h2>Thank You, SuMo 💕</h2>
-  <p>You just made me the happiest person alive. I promise I'll never take your forgiveness for granted. 🌹<br><br>Ab jaldi se mujhe message karo — Snapchat ya Insta pe! 💌</p>
+  <p>Aapne mujhe maaf karke mera din bana diya. Main vaada karta hoon ki ab tumhe kabhi aisa mehsoos nahi hone dunga. <br><br> Ab jaldi se mujhe message karo! 💌</p>
 </div>
 
 <script>
-  const FORMSPREE_ID = "YOUR_FORMSPREE_ID"; 
+  // Floating Hearts
   const heartsContainer = document.getElementById('hearts');
-  const heartEmojis = ['❤️', '💗', '💖', '💘', '💝'];
+  const heartEmojis = ['❤️', '💗', '💖', '💘', '💝', '🌸'];
   function createHeart() {
     const heart = document.createElement('div');
     heart.classList.add('heart');
@@ -152,16 +243,23 @@
     heartsContainer.appendChild(heart);
     setTimeout(() => heart.remove(), 15000);
   }
-  setInterval(createHeart, 500);
-  for (let i = 0; i < 12; i++) setTimeout(createHeart, i * 300);
+  setInterval(createHeart, 600);
+  for (let i = 0; i < 15; i++) setTimeout(createHeart, i * 300);
 
+  // Forgive Logic
   function forgive() {
     const now = new Date();
     const timeStr = now.toLocaleString('en-IN', { dateStyle: 'full', timeStyle: 'short' });
+    
+    // Save to her local browser just in case
     localStorage.setItem('sumoForgave', JSON.stringify({ forgiven: true, timestamp: timeStr }));
+    
+    // Show celebration
     document.getElementById('celebration').style.display = 'flex';
     launchConfetti();
 
+    // NOTE: If you add your Formspree ID here later, it will send you an email!
+    const FORMSPREE_ID = "YOUR_FORMSPREE_ID"; 
     if (FORMSPREE_ID !== "YOUR_FORMSPREE_ID") {
       fetch(`https://formspree.io/f/${FORMSPREE_ID}`, {
         method: 'POST',
@@ -175,18 +273,19 @@
     }
   }
 
+  // Confetti Logic
   function launchConfetti() {
-    const colors = ['#ec407a', '#ab47bc', '#ffd54f', '#4dd0e1', '#ff8a65', '#81c784'];
-    for (let i = 0; i < 120; i++) {
+    const colors = ['#ec407a', '#ab47bc', '#ffd54f', '#4dd0e1', '#ff8a65', '#81c784', '#ff9a9e'];
+    for (let i = 0; i < 150; i++) {
       const c = document.createElement('div');
       c.classList.add('confetti');
       c.style.left = Math.random() * 100 + 'vw';
       c.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
-      c.style.width = (Math.random() * 8 + 6) + 'px';
+      c.style.width = (Math.random() * 10 + 5) + 'px';
       c.style.height = c.style.width;
       c.style.borderRadius = Math.random() > 0.5 ? '50%' : '2px';
-      c.style.animationDuration = (Math.random() * 2.5 + 2) + 's';
-      c.style.animationDelay = Math.random() * 0.8 + 's';
+      c.style.animationDuration = (Math.random() * 3 + 2) + 's';
+      c.style.animationDelay = Math.random() * 0.5 + 's';
       document.body.appendChild(c);
       setTimeout(() => c.remove(), 5000);
     }
