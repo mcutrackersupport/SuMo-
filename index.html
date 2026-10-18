@@ -56,9 +56,9 @@
     to { opacity: 1; transform: translateY(0) scale(1); } 
   }
 
-  /* ---------- BARBIE DOLL ILLUSTRATION ---------- */
+  /* ---------- HELLO KITTY IMAGE FRAME ---------- */
   .photo-frame {
-    width: 170px; height: 170px; margin: 0 auto 25px;
+    width: 180px; height: 180px; margin: 0 auto 25px;
     border-radius: 50%; padding: 6px;
     background: linear-gradient(45deg, #ff9a9e 0%, #fecfef 50%, #a18cd1 100%);
     box-shadow: 0 10px 30px rgba(236, 64, 122, 0.5);
@@ -73,9 +73,9 @@
     50%      { box-shadow: 0 15px 45px rgba(171, 71, 188, 0.7); transform: translateZ(30px) scale(1.03); }
   }
 
-  .photo-frame svg {
-    width: 100%; height: 100%; border-radius: 50%;
-    border: 4px solid #fff; background: #fff0f5;
+  .photo-frame img {
+    width: 100%; height: 100%; object-fit: cover; object-position: center;
+    border-radius: 50%; border: 4px solid #fff; display: block;
   }
 
   h1 { 
@@ -230,7 +230,7 @@
     .card { padding: 35px 20px; border-radius: 20px; }
     h1 { font-size: 2.6rem; }
     .message { font-size: 0.98rem; padding: 0; }
-    .photo-frame { width: 140px; height: 140px; }
+    .photo-frame { width: 150px; height: 150px; }
     .forgive-btn { padding: 15px 35px; font-size: 1rem; }
     .question-highlight { font-size: 1rem; }
     .quote-box { padding: 15px 20px; font-size: 1rem; }
@@ -245,46 +245,9 @@
 <div class="card-wrapper" id="tiltCard">
   <div class="card">
     
-    <!-- Barbie Doll Illustration -->
+    <!-- Hello Kitty Image -->
     <div class="photo-frame">
-      <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-        <defs>
-          <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stop-color="#fff0f5" />
-            <stop offset="100%" stop-color="#f8bbd0" />
-          </linearGradient>
-          <linearGradient id="hairGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stop-color="#ff80ab" />
-            <stop offset="100%" stop-color="#c2185b" />
-          </linearGradient>
-          <linearGradient id="dressGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stop-color="#e1bee7" />
-            <stop offset="100%" stop-color="#8e24aa" />
-          </linearGradient>
-        </defs>
-        <circle cx="50" cy="50" r="50" fill="url(#bgGrad)"/>
-        <path d="M 20 60 Q 10 90 30 100 L 70 100 Q 90 90 80 60 Z" fill="url(#hairGrad)"/>
-        <path d="M 30 80 Q 50 65 70 80 L 85 100 L 15 100 Z" fill="url(#dressGrad)"/>
-        <path d="M 45 75 L 50 85 L 55 75 Z" fill="#ffd700"/>
-        <rect x="43" y="55" width="14" height="15" fill="#ffccbc" rx="5"/>
-        <ellipse cx="50" cy="45" rx="20" ry="24" fill="#ffccbc"/>
-        <path d="M 30 45 Q 25 15 50 15 Q 75 15 70 45 Q 65 25 50 25 Q 35 25 30 45 Z" fill="url(#hairGrad)"/>
-        <path d="M 30 45 Q 20 60 30 70 Q 25 55 35 45 Z" fill="url(#hairGrad)"/>
-        <path d="M 70 45 Q 80 60 70 70 Q 75 55 65 45 Z" fill="url(#hairGrad)"/>
-        <ellipse cx="40" cy="42" rx="3.5" ry="4.5" fill="#333"/>
-        <ellipse cx="60" cy="42" rx="3.5" ry="4.5" fill="#333"/>
-        <circle cx="41" cy="41" r="1.5" fill="#fff"/>
-        <circle cx="61" cy="41" r="1.5" fill="#fff"/>
-        <path d="M 36 40 Q 38 38 40 40" stroke="#333" fill="none" stroke-width="1"/>
-        <path d="M 60 40 Q 62 38 64 40" stroke="#333" fill="none" stroke-width="1"/>
-        <ellipse cx="33" cy="50" rx="5" ry="3" fill="#ff8a80" opacity="0.6"/>
-        <ellipse cx="67" cy="50" rx="5" ry="3" fill="#ff8a80" opacity="0.6"/>
-        <path d="M 44 52 Q 50 58 56 52 Q 50 55 44 52 Z" fill="#e91e63"/>
-        <path d="M 45 15 L 40 5 L 50 10 L 60 5 L 55 15 Z" fill="#ffd700"/>
-        <circle cx="50" cy="8" r="2" fill="#ff4081"/>
-        <circle cx="43" cy="10" r="1.5" fill="#ff4081"/>
-        <circle cx="57" cy="10" r="1.5" fill="#ff4081"/>
-      </svg>
+      <img src="https://i.ibb.co/68ZqXqz/kitty.jpg" alt="Hello Kitty">
     </div>
 
     <h1>I'm Sorry, SuMo 💗</h1>
@@ -391,7 +354,7 @@
     document.getElementById('celebration').style.display = 'flex';
     launchConfetti();
 
-    // Optional: Email Integration (Agar Formspree ID daali hai toh)
+    // Optional: Email Integration
     const FORMSPREE_ID = "YOUR_FORMSPREE_ID"; 
     if (FORMSPREE_ID !== "YOUR_FORMSPREE_ID") {
       fetch(`https://formspree.io/f/${FORMSPREE_ID}`, {
