@@ -22,7 +22,7 @@ body{
 @keyframes bg{50%{background-position:100% 50%}}
 .hrt{position:fixed;bottom:-40px;color:var(--accent);opacity:.3;pointer-events:none;animation:up linear forwards}
 @keyframes up{to{transform:translateY(-112vh) rotate(300deg);opacity:0}}
-main{max-width:640px;margin:0 auto;padding:26px 14px 90px;position:relative;z-index:2}
+main{max-width:640px;margin:0 auto;padding:26px 14px 90px;position:relative;z-index:2;}
 .stage{perspective:1100px}
 .tilt{transform-style:preserve-3d;transition:transform .2s ease-out}
 .card{
@@ -93,7 +93,7 @@ textarea:focus{border-color:var(--accent)}
 </head>
 <body>
 
-<main>
+<main id="mainContent">
 <div class="stage">
   <div class="tilt" id="tilt">
     <div class="card">
